@@ -26,3 +26,8 @@ Este documento registra o passo a passo da concepção, arquitetura e desenvolvi
 - **Docker Compose:** Orquestração bem-sucedida da API FastAPI (`blockbuster-api`) integrada com a stack unificada de observabilidade `grafana/otel-lgtm`.
 - **Portas Ativas:** Mapeamento concluído para o Grafana (`3000`), Prometheus (`9090`) e coletor OTLP (`4317/4318`).
 - **Terceiro Marco:** Commit da configuração do ambiente containerizado (`feat: adiciona dockerfile e docker-compose com stack lgtm`).
+
+## 6. Testes de Carga & Simulação de Falhas
+- **Script de Carga (`load_test.py`):** Desenvolvido script concorrente simulando o tráfego de pico do cenário *Blockbuster Premiere Rush*.
+- **Validação de Métricas RED:** Disparadas requisições em massa para testar o comportamento da API containerizada e a coleta de dados pelo OpenTelemetry/Prometheus.
+- **Quarto Marco:** Commit da automação de testes de carga (`test: adiciona script de teste de carga para simulacao de pico`).
