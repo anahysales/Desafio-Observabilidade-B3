@@ -1,0 +1,14 @@
+apiVersion: 1
+
+providers:
+  - name: "Blockbuster Premiere Rush"
+    orgId: 1
+    folder: ""
+    type: file
+    disableDeletion: false
+    updateIntervalSeconds: 30
+    allowUiUpdates: true
+    options:
+      # Path interno do grafana/otel-lgtm (equivalente funcional a /var/lib/grafana/dashboards)
+      path: /otel-lgtm/grafana/conf/provisioning/dashboards/custom
+      foldersFromFilesStructure: false

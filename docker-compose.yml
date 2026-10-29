@@ -23,6 +23,18 @@ services:
       - "4317:4317"
       - "4318:4318"
       - "9090:9090"
+    environment:
+      - GF_DASHBOARDS_DEFAULT_HOME_DASHBOARD_PATH=/otel-lgtm/grafana/conf/provisioning/dashboards/custom/dashboard.json
+    volumes:
+      # Provisioning oficial do grafana/otel-lgtm (paths internos da imagem)
+      - ./provisioning/dashboards/dashboard.yaml:/otel-lgtm/grafana/conf/provisioning/dashboards/dashboard.yaml:ro
+      - ./dashboard.json:/otel-lgtm/grafana/conf/provisioning/dashboards/custom/dashboard.json:ro
+      # Compatibilidade com paths clássicos Grafana (pedido do desafio)
+      - ./provisioning/dashboards/dashboard.yaml:/etc/grafana/provisioning/dashboards/dashboard.yaml:ro
+      - ./dashboard.json:/var/lib/grafana/dashboards/dashboard.json:ro
+      # Scraping Prometheus → API FastAPI (path oficial otel-lgtm + clássico)
+      - ./prometheus.yml:/otel-lgtm/prometheus.yaml:ro
+      - ./prometheus.yml:/etc/prometheus/prometheus.yml:ro
 
   k6-load-test:
     image: grafana/k6:latest
