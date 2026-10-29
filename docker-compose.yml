@@ -1,13 +1,18 @@
 version: '3.8'
 
 services:
-  app:
+  api:
     build: .
     container_name: blockbuster-api
     ports:
-      - "8000:8000"
+      - "8080:8080"
     environment:
       - OTEL_SERVICE_NAME=blockbuster-premiere-rush
+      - OTEL_EXPORTER_OTLP_ENDPOINT=http://otel-lgtm:4317
+      - OTEL_EXPORTER_OTLP_PROTOCOL=grpc
+      - EXTERNAL_API_FAILURE_RATE=0.05
+    depends_on:
+      - otel-lgtm
     restart: always
 
   otel-lgtm:
@@ -18,3 +23,12 @@ services:
       - "4317:4317"
       - "4318:4318"
       - "9090:9090"
+
+  k6-load-test:
+    image: grafana/k6:latest
+    container_name: k6-load-test
+    volumes:
+      - ./load.js:/load.js
+    command: run /load.js
+    depends_on:
+      - api

@@ -5,4 +5,5 @@ opentelemetry-api
 opentelemetry-sdk
 opentelemetry-instrumentation-fastapi
 opentelemetry-exporter-prometheus
+opentelemetry-exporter-otlp
 python-json-logger
