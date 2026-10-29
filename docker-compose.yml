@@ -1,0 +1,20 @@
+version: '3.8'
+
+services:
+  app:
+    build: .
+    container_name: blockbuster-api
+    ports:
+      - "8000:8000"
+    environment:
+      - OTEL_SERVICE_NAME=blockbuster-premiere-rush
+    restart: always
+
+  otel-lgtm:
+    image: grafana/otel-lgtm:latest
+    container_name: otel-lgtm
+    ports:
+      - "3000:3000"
+      - "4317:4317"
+      - "4318:4318"
+      - "9090:9090"

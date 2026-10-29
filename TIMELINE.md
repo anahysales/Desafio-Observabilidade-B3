@@ -16,3 +16,13 @@ Este documento registra o passo a passo da concepção, arquitetura e desenvolvi
 - **Estrutura Inicial:** Criação do arquivo `main.py` e do gerenciador de dependências (`requirements.txt`).
 - **Endpoints Funcionais:** Subida bem-sucedida da rota de autorização simulada de streaming e do endpoint de métricas básicas.
 - **Segundo Marco:** Commit da estrutura base do backend (`feat: implementa estrutura base do backend em fastapi com rotas de autorizacao e metricas`).
+
+## 4. Containerização e Stack LGTM
+- **Dockerfile & Docker Compose:** Criação dos arquivos de containerização para a API e orquestração da stack LGTM (`grafana/otel-lgtm`).
+- **Integração de Métricas e Traces:** Exposição das portas do Grafana (3000), Prometheus (9090) e OTLP (4317/4318).
+- **Terceiro Marco:** Commit da configuração do ambiente containerizado (`feat: adiciona dockerfile e docker-compose com stack lgtm`).
+
+## 5. Containerização e Stack LGTM
+- **Docker Compose:** Orquestração bem-sucedida da API FastAPI (`blockbuster-api`) integrada com a stack unificada de observabilidade `grafana/otel-lgtm`.
+- **Portas Ativas:** Mapeamento concluído para o Grafana (`3000`), Prometheus (`9090`) e coletor OTLP (`4317/4318`).
+- **Terceiro Marco:** Commit da configuração do ambiente containerizado (`feat: adiciona dockerfile e docker-compose com stack lgtm`).
