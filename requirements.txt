@@ -1,7 +1,8 @@
 fastapi
 uvicorn
+prometheus-client
 opentelemetry-api
 opentelemetry-sdk
 opentelemetry-instrumentation-fastapi
 opentelemetry-exporter-prometheus
-prometheus-client
+python-json-logger
